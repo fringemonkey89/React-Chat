@@ -9,7 +9,7 @@ const ChatPage = ({ socket }) => {
             <ChatBar />
             <div className='chat_main'>
                 <ChatBody />
-                <ChatFooter />
+                <ChatFooter socket={socket} />
             </div>
         </div>
 
