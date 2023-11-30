@@ -5,11 +5,13 @@ const PORT = 4000;
 const http = require('http').Server(app);
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors(
+ { origin: "http://localhost:5173"}
+));
 
 const socketIO = require('socket.io')(http, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: "http://localhost:5173"
     }
 });
 
@@ -35,7 +37,7 @@ socketIO.on('connection', (socket) => {
 
         users = users.filter((user) => user.socketID !== socket.id);
 
-        socketIO.emit('newUserRsponse', users)
+        socketIO.emit('newUserResponse', users)
         socket.disconnect();
     })
 })
