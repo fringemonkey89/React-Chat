@@ -39,7 +39,7 @@ const ChatBody = ({ messages }) => {
                 )}
                 
                 <div className='message_status'>
-                    <p>someone is typing...</p>
+                   
                 </div>
             </div>
         

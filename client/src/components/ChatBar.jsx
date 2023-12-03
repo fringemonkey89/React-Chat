@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react'
 const ChatBar = ({socket}) => {
     const [users, setUsers] = useState([])
 
+    // sets up the effect hook
+    // callback function is executed when the component mounts or when a users dependencies change
     useEffect(() => {
+        // sets up a listener for the newUserResponse event from the socket
+        // when a newUserResponse event is received, the callback function is executed, updating the users
+        //state with the new users data
         socket.on('newUserResponse', (data) => setUsers(data))
     }, [socket, users])
     return (
